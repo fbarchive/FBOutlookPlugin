@@ -1,0 +1,198 @@
+[
+  uuid(DB3D1837-40E4-4366-A68C-EE9F3DADBF87),
+  version(1.0),
+  helpstring("FBPlugin Library")
+
+]
+library FBPlugin
+{
+
+  importlib("stdole2.tlb");
+
+  interface ITFBPlugin;
+  coclass TFBPlugin;
+  interface ITFBSettings;
+  dispinterface ITFBSettingsEvents;
+  coclass TFBSettings;
+
+
+  [
+    uuid(BEE2E884-03BE-4BB9-8A98-1AC7DA48316B),
+    version(1.0)
+  ]
+  enum TxActiveFormBorderStyle
+  {
+    [helpstring("afbNone")]
+    afbNone = 0,
+    [helpstring("afbSingle")]
+    afbSingle = 1,
+    [helpstring("afbSunken")]
+    afbSunken = 2,
+    [helpstring("afbRaised")]
+    afbRaised = 3
+  };
+
+  [
+    uuid(E2DF8556-C2D4-4417-A375-EDDC08CE79B7),
+    version(1.0)
+  ]
+  enum TxPrintScale
+  {
+    [helpstring("poNone")]
+    poNone = 0,
+    [helpstring("poProportional")]
+    poProportional = 1,
+    [helpstring("poPrintToFit")]
+    poPrintToFit = 2
+  };
+
+  [
+    uuid(0928CF5B-1FF2-4586-8890-9641E10326E3),
+    version(1.0)
+  ]
+  enum TxMouseButton
+  {
+    [helpstring("mbLeft")]
+    mbLeft = 0,
+    [helpstring("mbRight")]
+    mbRight = 1,
+    [helpstring("mbMiddle")]
+    mbMiddle = 2
+  };
+
+  [
+    uuid(D9F0E3EE-1CD8-4DC8-95A4-80E989E270D8),
+    version(1.0),
+    helpstring("Dispatch interface for TFBPlugin Object"),
+    dual,
+    oleautomation
+  ]
+  interface ITFBPlugin: IDispatch
+  {
+  };
+
+  [
+    uuid(39851C8F-6F31-4DF3-99F0-ABBF09A2F763),
+    version(1.0),
+    helpstring("TFBPlugin Object")
+  ]
+  coclass TFBPlugin
+  {
+    [default] interface ITFBPlugin;
+  };
+
+  [
+    uuid(9C96241B-633B-4826-AECA-23569726EE62),
+    version(1.0),
+    helpstring("Dispatch interface for TFBSettings Control"),
+    dual,
+    oleautomation
+  ]
+  interface ITFBSettings: IDispatch
+  {
+    [propget, id(0x00000001), hidden]
+    HRESULT _stdcall Visible([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x00000001), hidden]
+    HRESULT _stdcall Visible([in] VARIANT_BOOL Value);
+    [propget, id(0x00000002)]
+    HRESULT _stdcall AutoScroll([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x00000002)]
+    HRESULT _stdcall AutoScroll([in] VARIANT_BOOL Value);
+    [propget, id(0x00000003)]
+    HRESULT _stdcall AutoSize([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x00000003)]
+    HRESULT _stdcall AutoSize([in] VARIANT_BOOL Value);
+    [propget, id(0x00000004)]
+    HRESULT _stdcall AxBorderStyle([out, retval] enum TxActiveFormBorderStyle* Value);
+    [propput, id(0x00000004)]
+    HRESULT _stdcall AxBorderStyle([in] enum TxActiveFormBorderStyle Value);
+    [propget, id(0xFFFFFDFA)]
+    HRESULT _stdcall Caption([out, retval] BSTR* Value);
+    [propput, id(0xFFFFFDFA)]
+    HRESULT _stdcall Caption([in] BSTR Value);
+    [propget, id(0x00000005)]
+    HRESULT _stdcall Color([out, retval] long* Value);
+    [propput, id(0x00000005)]
+    HRESULT _stdcall Color([in] long Value);
+    [propget, id(0x00000006)]
+    HRESULT _stdcall KeyPreview([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x00000006)]
+    HRESULT _stdcall KeyPreview([in] VARIANT_BOOL Value);
+    [propget, id(0x00000007)]
+    HRESULT _stdcall PixelsPerInch([out, retval] long* Value);
+    [propput, id(0x00000007)]
+    HRESULT _stdcall PixelsPerInch([in] long Value);
+    [propget, id(0x00000008)]
+    HRESULT _stdcall PrintScale([out, retval] enum TxPrintScale* Value);
+    [propput, id(0x00000008)]
+    HRESULT _stdcall PrintScale([in] enum TxPrintScale Value);
+    [propget, id(0x00000009)]
+    HRESULT _stdcall Scaled([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x00000009)]
+    HRESULT _stdcall Scaled([in] VARIANT_BOOL Value);
+    [propget, id(0x0000000A), hidden]
+    HRESULT _stdcall Active([out, retval] VARIANT_BOOL* Value);
+    [propget, id(0x0000000B), hidden]
+    HRESULT _stdcall DropTarget([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x0000000B), hidden]
+    HRESULT _stdcall DropTarget([in] VARIANT_BOOL Value);
+    [propget, id(0x0000000C), hidden]
+    HRESULT _stdcall HelpFile([out, retval] BSTR* Value);
+    [propput, id(0x0000000C), hidden]
+    HRESULT _stdcall HelpFile([in] BSTR Value);
+    [propget, id(0x0000000D), hidden]
+    HRESULT _stdcall DoubleBuffered([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0x0000000D), hidden]
+    HRESULT _stdcall DoubleBuffered([in] VARIANT_BOOL Value);
+    [propget, id(0x0000000E), hidden]
+    HRESULT _stdcall VisibleDockClientCount([out, retval] long* Value);
+    [propget, id(0xFFFFFDFE), hidden]
+    HRESULT _stdcall Enabled([out, retval] VARIANT_BOOL* Value);
+    [propput, id(0xFFFFFDFE), hidden]
+    HRESULT _stdcall Enabled([in] VARIANT_BOOL Value);
+    [propget, id(0x0000000F)]
+    HRESULT _stdcall Cursor([out, retval] short* Value);
+    [propput, id(0x0000000F)]
+    HRESULT _stdcall Cursor([in] short Value);
+  };
+
+  [
+    uuid(94E7520D-9216-4E11-91E0-5A0922EB4718),
+    version(1.0),
+    helpstring("Events interface for TFBSettings Control")
+  ]
+  dispinterface ITFBSettingsEvents
+  {
+    properties:
+    methods:
+    [id(0x00000001)]
+    void OnActivate(void);
+    [id(0x00000002)]
+    void OnClick(void);
+    [id(0x00000003)]
+    void OnCreate(void);
+    [id(0x00000005)]
+    void OnDblClick(void);
+    [id(0x00000006)]
+    void OnDestroy(void);
+    [id(0x00000007)]
+    void OnDeactivate(void);
+    [id(0x0000000B)]
+    void OnKeyPress([in, out] short* Key);
+    [id(0x00000010)]
+    void OnPaint(void);
+  };
+
+  [
+    uuid(2D064735-680A-4A97-A3AF-F465E7EAE0C3),
+    version(1.0),
+    helpstring("TFBSettings Control"),
+    control
+  ]
+  coclass TFBSettings
+  {
+    [default] interface ITFBSettings;
+    [default, source] dispinterface ITFBSettingsEvents;
+  };
+
+};
