@@ -1,8 +1,8 @@
-# Fogbugz Outlook Plugin
+# FogBugz Outlook Plugin
 
-> **Disclaimer**: This is the source code for the FogBugz Outlook Plugin. It is distributed
-> in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
-> warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+> Outlook Plugin deeply integrates FogBugz case management into your standard email workflow.
+> It adds a **Case from Message** button to the MS Outlook toolbar; just click it to turn
+> the contents of the current email into a new FogBugz case.
 
 ## Requirements
 
@@ -45,3 +45,12 @@ has all the functionality I need, I don't really have the urge to update it or a
 features. That's too bad, since there are probably a lot of good ideas out there.
 At the request of the nice folks at FogCreek and some people that e-mailed me
 I release the source, hoping that someone will pick it up.
+
+
+## License
+
+Copyright (c) 2009 Birger Jansen
+
+> **Disclaimer**: This is the source code for the FogBugz Outlook Plugin. It is distributed
+> in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+> warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
